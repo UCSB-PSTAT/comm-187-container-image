@@ -30,7 +30,7 @@ pipeline {
                 }
                 stage('Test') {
                     steps {
-                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import numpy; import pandas; import math; import statistics; import nltk"'
+                        sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import numpy; import pandas; import math; import nltk; import scipy; import statistics"'
                         sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME /bin/which otter'
                         sh 'podman run -d --name=$IMAGE_NAME --rm --pull=never -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
                         sh 'sleep 10 && curl -v http://localhost:8888/lab?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'
