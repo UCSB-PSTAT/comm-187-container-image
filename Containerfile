@@ -11,8 +11,11 @@ RUN apt update -qq && \
     texlive-plain-generic && \
     apt-get clean
 
-#RUN mamba install -y astropy <libraries>
+RUN mamba install -y \
+    conda-forge::scipy \
+    conda-forge::otter-grader \
+    conda-forge::nltk \
+    conda-forge::r-tidyr
 
-RUN pip install otter-grader nltk
 
 USER $NB_USER
