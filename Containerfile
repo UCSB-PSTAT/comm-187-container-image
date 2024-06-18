@@ -17,9 +17,11 @@ RUN mamba install -y \
     conda-forge::nltk \
     conda-forge::r-here \
     conda-forge::r-jtools \
-    r::r-ltm \
     conda-forge::r-psych \
     conda-forge::r-tidyr && \
     mamba clean --all
+
+# ltm is on Conda's website, but mamba can't find it, so install via R. 
+RUN R -e "install.packages(c('ltm'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
 USER $NB_USER
