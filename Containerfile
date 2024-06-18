@@ -19,7 +19,7 @@ RUN mamba install -y \
     conda-forge::r-jtools \
     r::r-ltm \
     conda-forge::r-psych \
-    conda-forge::r-tidyr
-
+    conda-forge::r-tidyr && \
+    mamba clean --all
 
 USER $NB_USER
