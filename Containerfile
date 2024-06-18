@@ -15,6 +15,10 @@ RUN mamba install -y \
     conda-forge::scipy \
     conda-forge::otter-grader \
     conda-forge::nltk \
+    conda-forge::r-here \
+    conda-forge::r-jtools \
+    r::r-ltm \
+    conda-forge::r-psych \
     conda-forge::r-tidyr
 
 
