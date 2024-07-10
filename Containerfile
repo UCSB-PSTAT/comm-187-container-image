@@ -12,13 +12,13 @@ RUN apt update -qq && \
     apt-get clean
 
 RUN mamba install -y \
-    conda-forge::scipy \
-    conda-forge::otter-grader \
-    conda-forge::nltk \
-    conda-forge::r-here \
-    conda-forge::r-jtools \
-    conda-forge::r-psych \
-    conda-forge::r-tidyr && \
+    scipy \
+    otter-grader \
+    nltk \
+    r-here \
+    r-jtools \
+    r-psych \
+    r-tidyr && \
     mamba clean --all
 
 # ltm is on Conda's website, but mamba can't find it, so install via R. 
