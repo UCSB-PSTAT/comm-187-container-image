@@ -11,7 +11,7 @@ RUN apt update -qq && \
     texlive-plain-generic && \
     apt-get clean
 
-RUN mamba install -y \
+RUN conda install -y \
     scipy \
     otter-grader \
     nltk \
@@ -19,7 +19,7 @@ RUN mamba install -y \
     r-jtools \
     r-psych \
     r-tidyr && \
-    mamba clean --all
+    conda clean --all
 
 # ltm is on Conda's website, but mamba can't find it, so install via R. 
 RUN R -e "install.packages(c('ltm'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
