@@ -13,6 +13,7 @@ RUN apt update -qq && \
 
 RUN conda install -y \
     scipy \
+    seaborn \
     otter-grader \
     nltk \
     r-here \
